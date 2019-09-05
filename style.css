@@ -1,24 +1,32 @@
-@import url('https://fonts.googleapis.com/css?family=Livvic&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap');
+
+/*font-family: 'Fredericka the Great', cursive;*/
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Livvic', sans-serif;
+    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 main.products>section{
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 	grid-gap: 1rem;
-	max-width: 1300px;
+	max-width: 1200px;
 	grid-template-rows: 1fr;
 	margin: 0 auto;
+    background-color: antiquewhite;
 }
 
 main.products>section>h1{
+    font-family: 'Fredericka the Great', cursive;
+    color:#ffd24f;
+    text-transform: capitalize;
 	grid-column: 1/-1;
-	font-size: 5rem;
-	margin: 6rem 0 0 0;
+	font-size: 2rem;
+	margin: 3rem 0 0 0;
 }
 
 ul {
@@ -54,7 +62,7 @@ ul li a.active {
 }
 
 img{
-        width: 26.6vw;
+        width: 100%;
     height: auto;
 }
 /*  if discount  */
@@ -63,6 +71,16 @@ img{
     text-decoration: line-through;
 
 }
+
+
+/*style for soldout*/
+
+
 .soldout{
-    background: red;
+
+}
+button{
+    background: #ffd24f;
+    border-color: #ffd24f;
+    color: #424242;
 }
