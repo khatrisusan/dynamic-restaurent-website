@@ -10,6 +10,9 @@
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
+html {
+scroll-behavior: smooth;
+}
 main.products>section{
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -41,22 +44,22 @@ ul li {
 }
 
 ul li a {
+    font-family: 'Fredericka the Great', cursive;
+    color:#ffd24f;
+    text-transform: uppercase;
     text-decoration: none;
-    color: antiquewhite;
     padding: 0.5vw 1vw;
     border: 1px solid transparent;
     transition: 0.8s ease;
-    font-size: 1.5vw;
+    font-size: .rem;
 }
 
 .main ul li a:hover {
-    color: blueviolet;
     text-decoration: underline;
 
 }
 
 ul li a.active {
-    color: blueviolet;
     text-decoration: underline;
 
 }
