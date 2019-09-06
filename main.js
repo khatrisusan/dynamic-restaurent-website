@@ -1,3 +1,9 @@
+const modal = document.querySelector(".modal-background");
+modal.addEventListener("click", ()=> {
+  modal.classList.add("hide");
+});
+
+
 fetch("http://kea-alt-del.dk/t5/api/categories")
     .then(function (response) {
         return response.json()
@@ -57,7 +63,19 @@ function showDish(dish) {
     if (dish.soldout == false) {
         myCopy.querySelector(".soldout").classList.remove("soldOut");
     }
-    document.querySelector(`#${dish.category}`).appendChild(myCopy)
+   myCopy.querySelector("button").addEventListener("click", () => {
+    fetch(`https://kea-alt-del.dk/t5/api/product?id=${dish.id}`)
+      .then(res => res.json())
+      .then(showDetails);
+  });
+    document.querySelector(`#${dish.category}`).appendChild(myCopy);
+
+
+}
+function showDetails(data) {
+  modal.querySelector(".modal-name").textContent = data.name;
+  modal.querySelector(".modal-description").textContent = data.longdescription;
+  modal.classList.remove("hide");
 }
 
 
@@ -65,9 +83,12 @@ function showDish(dish) {
 //const button = document.querySelector("button");
 //button.addEventListener("click", addCopy);
 
+/*
 function addCopy() {
     const myTemplate = document.querySelector("template").content;
     const myCopy = myTemplate.cloneNode(true);
     const main = document.querySelector("aside");
     aside.appendChild(myCopy)
 }
+*/
+
