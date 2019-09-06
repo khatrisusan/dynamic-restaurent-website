@@ -122,8 +122,6 @@ button#order {
 }
 
 .modal-content {
-    display: grid;
-    grid-template-rows: 1fr 3fr 2fr 1fr;
     background-color: #fefefe;
     border: 1px solid #7c1f17;
     margin: 1em;
@@ -141,11 +139,7 @@ img.modal-image {
 }
 
 .modal-name {
-    grid-area: name;
     text-align: center;
-}
-.modal-description{
-    grid-area: longDescription;
 }
 .modal-price{
     grid-area: price;
