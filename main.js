@@ -1,6 +1,6 @@
 const modal = document.querySelector(".modal-background");
-modal.addEventListener("click", ()=> {
-  modal.classList.add("hide");
+modal.addEventListener("click", () => {
+    modal.classList.add("hide");
 });
 
 
@@ -21,7 +21,7 @@ function buildCategory(data) {
     section.appendChild(header);
 
     document.querySelector("main").appendChild(section);
-    console.log(data);
+   // console.log(data);
 }
 
 function getProducts() {
@@ -36,7 +36,7 @@ function getProducts() {
 }
 
 function showDish(dish) {
-    console.log(dish)
+    //console.log(dish)
 
     const template = document.querySelector("template").content;
     const myCopy = template.cloneNode("true");
@@ -44,42 +44,67 @@ function showDish(dish) {
 
     myCopy.querySelector(".name h1").textContent = dish.name;
     myCopy.querySelector(".price p").textContent = `Price:${dish.price}`
-    if (!dish.alcohol == 0) {
-        myCopy.querySelector(".alcohol p").textContent = `Alcohol:${dish.alcohol}`;
-    } else {
-        myCopy.querySelector(".alcohol p").remove();
-    }
 
 
 
     if (dish.discount) {
         myCopy.querySelector(".price p").classList.add("discount");
-        myCopy.querySelector(".discount p").textContent = Math.round(dish.price - dish.discount / 100 * dish.price)
+        myCopy.querySelector(".dis p").textContent = `New price: ${Math.round(dish.price - dish.discount / 100 * dish.price)}`
 
     } else {
-        myCopy.querySelector(".discount p").remove();
+        myCopy.querySelector(".dis p").remove();
     }
-
-    if (dish.soldout == false) {
-        myCopy.querySelector(".soldout").classList.remove("soldOut");
+    if (dish.soldout == true) {
+        myCopy.querySelector(".soldout").classList.add("sold");
+    }else {
+       //do nothing
     }
-   myCopy.querySelector("button").addEventListener("click", () => {
-    fetch(`https://kea-alt-del.dk/t5/api/product?id=${dish.id}`)
-      .then(res => res.json())
-      .then(showDetails);
-  });
+    myCopy.querySelector("button").addEventListener("click", () => {
+        fetch(`https://kea-alt-del.dk/t5/api/product?id=${dish.id}`)
+            .then(res => res.json())
+            .then(showDetails);
+    });
     document.querySelector(`#${dish.category}`).appendChild(myCopy);
 
 
 }
+
 function showDetails(data) {
-  modal.querySelector(".modal-name").textContent = data.name;
-  modal.querySelector(".modal-description").textContent = data.longdescription;
-  modal.classList.remove("hide");
+    modal.querySelector(".modal-name").textContent = data.name;
+    modal.querySelector("img").src = "images/large/" + data.image + ".jpg";
+    modal.querySelector(".modal-price").textContent = `Price: ${Math.round(data.price - data.discount / 100 * data.price)}`;
+modal.querySelector(".modal-alcohol").style.display = "block";
+    if (data.alcohol > 0) {
+        modal.querySelector(".modal-alcohol").textContent = `Alcohol : ${data.alcohol}%`;
+        modal.querySelector(".modal-alcohol").style.display = "block";
+    } else {
+        modal.querySelector(".modal-alcohol").style.display = "none";
+    }
+    modal.querySelector(".modal-vegetarian").style.display = "block";
+    if (data.vegetarian == true) {
+        modal.querySelector(".modal-vegetarian").textContent = `Vegetarian`;
+        modal.querySelector(".modal-vegetarian").style.display = "block";
+    } else {
+        modal.querySelector(".modal-vegetarian").style.display = "none";
+    }
+
+    modal.querySelector(".modal-description").textContent = data.longdescription;
+    modal.classList.remove("hide");
+     if (data.soldout == true) {
+        //modal.querySelector("button#order").classList.add("sold");
+        modal.querySelector("button#order").remove();
+         //modal.querySelector("button#order").remove(function orderMessage());
+
+    }else {
+       //do nothing
+    }
 }
 
-
-
+//for moving to top
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
 //const button = document.querySelector("button");
 //button.addEventListener("click", addCopy);
 
@@ -92,3 +117,7 @@ function addCopy() {
 }
 */
 
+//ordered message
+function orderMessage() {
+    alert("You have successfully placed your order!");
+}

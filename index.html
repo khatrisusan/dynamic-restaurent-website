@@ -13,8 +13,8 @@
     <nav>
         <ul>
             <li><a class="active" href="#starter">Starter</a></li>
-            <li><a href="#main">Mains</a></li>
-            <li><a href="#dessert">Desserts</a></li>
+            <li><a href="#main">Main</a></li>
+            <li><a href="#dessert">Dessert</a></li>
             <li><a href="#drinks">Drinks</a></li>
             <li><a href="#sideorders">Side Orders</a></li>
         </ul>
@@ -27,9 +27,11 @@
         <main class="products">
 
             <template>
-                <section>
+
+                <section  class="soldout">
+
                     <div class="image">
-                        <img src="" alt="">
+                        <img src="images/large/baltiskbondesuppe.jpg" alt="picture">
                     </div>
                     <div class="name">
                         <h1>NAME</h1>
@@ -37,21 +39,11 @@
                     <div class="price">
                         <p>PRICE: 29kr</p>
                     </div>
-                    <div class="discount">
+                    <div class="dis">
                         <p>discount: somenumber</p>
                     </div>
-                    <div class="shortDescription">
-                        <p>rftrfj</p>
-                    </div>
-                    <div class="region">
-                        <p>Region:Russia</p>
-                    </div>
-                    <div class="alcohol">
-                        <p>Alhohol: 8</p>
-                    </div>
-                    <div class="soldout">
                         <button>Show More</button>
-                    </div>
+
 
                     <!--<button onclick="displayShowmore" class="showMore"></button>
             <div class="displayShowmore">
@@ -65,15 +57,22 @@
             </template>
         </main>
     </div>
-                <div class="modal-background hide">
-                    <div class="modal-content">
-                        <h3 class="modal-name">NAME</h3>
-                        <img src="" alt="" class="modal-image" />
-                        <p class="modal-description">LONG DESCRIPTION</p>
-                        <h4 class="modal-price">PRICE</h4>
-                    </div>
-                </div>
-
+    <div class="modal-background hide">
+        <div class="modal-content">
+            <h3 class="modal-name">NAME</h3>
+            <img src="images/large/baltiskbondesuppe.jpg" alt="pic" class="modal-image" />
+            <p class="modal-description">LONG DESCRIPTION</p>
+            <h4 class="modal-price">PRICE</h4>
+            <div class="modal-alcohol">Alcohol
+            </div>
+            <div class="modal-vegetarian">Vegetarian
+            </div>
+            <button id="order" onclick="orderMessage()">Order Now</button>
+        </div>
+    </div>
+    <footer onclick="topFunction()" id="myBtn">
+        <h1>Go to top</h1>
+    </footer>
 
 
     <script src="main.js"></script>

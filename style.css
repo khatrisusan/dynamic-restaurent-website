@@ -11,25 +11,29 @@
     box-sizing: border-box;
 }
 html {
-scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
-main.products>section{
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	grid-gap: 1rem;
-	max-width: 1200px;
-	grid-template-rows: 1fr;
-	margin: 0 auto;
+body{
     background-color: antiquewhite;
 }
 
-main.products>section>h1{
+main.products > section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    max-width: 1200px;
+    grid-template-rows: 1fr;
+    margin: 0 auto;
+    background-color: antiquewhite;
+}
+
+main.products > section > h1 {
     font-family: 'Fredericka the Great', cursive;
-    color:#ffd24f;
+    color: orangered;
     text-transform: capitalize;
-	grid-column: 1/-1;
-	font-size: 2rem;
-	margin: 3rem 0 0 0;
+    grid-column: 1/-1;
+    font-size: 2rem;
+    margin: 3rem 0 0 0;
 }
 
 ul {
@@ -38,6 +42,9 @@ ul {
     list-style-type: none;
     margin-top: 2vw;
 }
+.name h1, .dis p, .price p, .alcohol p, .vegetarian p{
+    text-align: center;
+}
 
 ul li {
     display: inline-block;
@@ -45,16 +52,15 @@ ul li {
 
 ul li a {
     font-family: 'Fredericka the Great', cursive;
-    color:#ffd24f;
+    color: orangered;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0.5vw 1vw;
     border: 1px solid transparent;
     transition: 0.8s ease;
-    font-size: .rem;
 }
 
-.main ul li a:hover {
+nav ul li a:hover {
     text-decoration: underline;
 
 }
@@ -64,44 +70,99 @@ ul li a.active {
 
 }
 
-img{
-        width: 100%;
+img {
+    width: 100%;
     height: auto;
 }
+
 /*  if discount  */
-.discount{
+.discount {
     color: red;
     text-decoration: line-through;
-
 }
 
 
 /*style for soldout*/
 
 
-.soldout{
-
+.sold {
+   opacity: .5;
+    background-color:aliceblue;
 }
-button{
+
+button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     background: #ffd24f;
     border-color: #ffd24f;
     color: #424242;
 }
+button#order {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffd24f;
+    border-color: #ffd24f;
+    color: #424242;
+}
+
 .hide {
-  display: none;
+    display: none;
 }
+
 .modal-background {
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
 }
+
 .modal-content {
-  background-color: #fefefe;
-  border: 1px solid #7c1f17;
-  margin: 1em;
-  padding: 2em;
+    display: grid;
+    grid-template-rows: 1fr 3fr 2fr 1fr;
+    background-color: #fefefe;
+    border: 1px solid #7c1f17;
+    margin: 1em;
+    padding: 2em;
+    background-color: antiquewhite;
+}
+
+img.modal-image {
+    grid-area: image;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 27vw;
+    height: auto;
+}
+
+.modal-name {
+    grid-area: name;
+    text-align: center;
+}
+.modal-description{
+    grid-area: longDescription;
+}
+.modal-price{
+    grid-area: price;
+}
+nav {
+    overflow: auto;
+    background-color: antiquewhite;
+}
+
+footer#myBtn h1{
+    font-family: 'Fredericka the Great', cursive;
+    color: orangered;
+    background-color: antiquewhite;
+    text-align: center;
+    text-decoration: none;
+}
+footer#myBtn h1:hover{
+    text-decoration: underline;
+    cursor: pointer;
 }
